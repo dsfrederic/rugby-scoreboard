@@ -1,21 +1,39 @@
 const { app, BrowserWindow, ipcMain } = require('electron/main')
+const { count } = require('node:console')
 const path = require('node:path')
 
 counter = 0
 
 function createWindow () {
-  const mainWindow = new BrowserWindow({
+  const displayWindow = new BrowserWindow({
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
+    }
+  })
+
+  const controlWindow = new BrowserWindow({
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
     }
   })
 
   ipcMain.on('add-points', (event, pointsToAdd) => {
-    counter += parseInt(pointsToAdd, 10);;
+    counter += parseInt(pointsToAdd, 10);
+
+    if (counter < 0) {
+      counter = 0;
+    }
+
     event.sender.send('counter-updated', counter);
+    if (displayWindow) {
+      displayWindow.webContents.send('counter-updated', counter)
+    }
   })
 
-  mainWindow.loadFile('index.html')
+  displayWindow.loadFile('display.html')
+  controlWindow.loadFile('control.html')
 }
 
 app.whenReady().then(() => {
