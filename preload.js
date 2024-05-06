@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron/renderer')
 
 contextBridge.exposeInMainWorld('electronAPI', {
-    incrementOne: () => ipcRenderer.send('increment-one')
+    addPoints: (pointsToAdd) => ipcRenderer.send('add-points', pointsToAdd)
 })
 
 ipcRenderer.on('counter-updated', (event, counter) => {

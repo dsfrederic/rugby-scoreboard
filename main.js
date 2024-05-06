@@ -10,8 +10,8 @@ function createWindow () {
     }
   })
 
-  ipcMain.on('increment-one', (event) => {
-    counter++
+  ipcMain.on('add-points', (event, pointsToAdd) => {
+    counter += parseInt(pointsToAdd, 10);;
     event.sender.send('counter-updated', counter);
   })
 
