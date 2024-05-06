@@ -1,0 +1,15 @@
+{
+  "name": "rugby-scoreboard",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Frédéric De Smet",
+  "license": "ISC",
+  "description": "Scoreboard application for rugby games",
+  "devDependencies": {
+    "electron": "^30.0.2"
+  }
+}
