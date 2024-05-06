@@ -8,8 +8,10 @@ function createWindow () {
   const displayWindow = new BrowserWindow({
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
+    frame: false,
+    // fullscreen: true, //TODO:  Uncomment this line to make the display window full screen
   })
 
   const controlWindow = new BrowserWindow({
