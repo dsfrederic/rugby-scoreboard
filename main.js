@@ -24,7 +24,7 @@ function createWindow() {
       nodeIntegration: true,
     },
     frame: false,
-    // fullscreen: true, 
+    fullscreen: true, 
   })
 
   const controlWindow = new BrowserWindow({
@@ -37,6 +37,9 @@ function createWindow() {
   ipcMain.on('add-points', (event, pointsToAdd, team) => {
     // Add points to the team
     teams[team].score += parseInt(pointsToAdd);
+    if (teams[team].score < 0) {
+      teams[team].score = 0;
+    }
     
     console.log("Team " + team + " score: " + teams[team].score)
 
@@ -55,7 +58,7 @@ function createWindow() {
   ipcMain.on('reset', (event) => { 
     console.log("Reset values")
 
-    let teams = {
+    teams = {
       1: {
         name: 'Team 1',
         score: 0

@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Scoreboard</title>
-  </head>
-  <body>
-    <h1 class="teamName" team="1">Team name 1 placeholder</h1>
-    <h1 class="teamScore" team="1">0</h1>
 
-    <h1 class="teamName" team="2">Team name 2 placeholder</h1>
-    <h1 class="teamScore" team="2">0</h1>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">  <title>Scoreboard</title>
+  <style>
+    .teams {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
 
-    <script src="./renderer.js"></script>
-  </body>
+    .teamName {
+      font-size: 5em;
+    }
+
+    .teamScore {
+      font-size: 15em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="teams">
+    <div class="team">
+      <h1 class="teamName" team="1">Team 1</h1>
+      <h1 class="teamScore" team="1">0</h1>
+    </div>
+
+    <div class="team">
+      <h1 class="teamName" team="2">Team 2</h1>
+      <h1 class="teamScore" team="2">0</h1>
+    </div>
+  </div>
+  <script src="./renderer.js"></script>
+  
+</body>
+
 </html>

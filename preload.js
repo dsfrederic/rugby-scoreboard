@@ -14,6 +14,12 @@ ipcRenderer.on('data-refresh', (event, teams) => {
         console.log("teamName: " + teamName.textContent + " teamId: " + teamId);
     }
 
+    const teanNameInputs = document.getElementsByClassName('teamNameInput');
+    for(let teamNameInput of teanNameInputs) {
+        let teamId = teamNameInput.getAttribute('team');
+        teamNameInput.value = teams[teamId].name;
+    }
+
     const teamScores = document.getElementsByClassName('teamScore');
     for(let teamScore of teamScores) {
         let teamId = teamScore.getAttribute('team');
