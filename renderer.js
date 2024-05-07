@@ -4,3 +4,9 @@ for(let i = 0; i < incrementBtns.length; i++) {
     window.electronAPI.addPoints(incrementBtns[i].textContent);
   });
 }
+
+const teamNameInput = document.getElementById('teamNameInput');
+const teamNameBtn = document.getElementById('setTeamName');
+teamNameBtn.addEventListener('click', () => {
+  window.electronAPI.setTeamName(teamNameInput.value);
+});

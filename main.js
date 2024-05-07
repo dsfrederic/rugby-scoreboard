@@ -3,15 +3,16 @@ const { count } = require('node:console')
 const path = require('node:path')
 
 counter = 0
+teamName = "Team 1"
 
-function createWindow () {
+function createWindow() {
   const displayWindow = new BrowserWindow({
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
     },
     frame: false,
-    // fullscreen: true, //TODO:  Uncomment this line to make the display window full screen
+    fullscreen: true, 
   })
 
   const controlWindow = new BrowserWindow({
@@ -31,6 +32,16 @@ function createWindow () {
     event.sender.send('counter-updated', counter);
     if (displayWindow) {
       displayWindow.webContents.send('counter-updated', counter)
+    }
+
+
+  })
+
+  ipcMain.on('set-team-name', (event, teamName) => {
+    teamName = teamName;
+    event.sender.send('team-name-updated', teamName);
+    if (displayWindow) {
+      displayWindow.webContents.send('team-name-updated', teamName)
     }
   })
 
