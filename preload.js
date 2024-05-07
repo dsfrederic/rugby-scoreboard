@@ -1,17 +1,22 @@
 const { contextBridge, ipcRenderer } = require('electron/renderer')
 
 contextBridge.exposeInMainWorld('electronAPI', {
-    addPoints: (pointsToAdd) => ipcRenderer.send('add-points', pointsToAdd),
-    setTeamName: (teamName) => ipcRenderer.send('set-team-name', teamName),
+    addPoints: (pointsToAdd, team) => ipcRenderer.send('add-points', pointsToAdd, team),
+    setTeamName: (teamName, team) => ipcRenderer.send('set-team-name', teamName, team),
     reset: () => ipcRenderer.send('reset')
 })
 
-ipcRenderer.on('counter-updated', (event, counter) => {
-    const counterValue = document.getElementById('counterValue');
-    counterValue.textContent = counter;
-});
+ipcRenderer.on('data-refresh', (event, teams) => {
+    const teamNames = document.getElementsByClassName('teamName');
+    for(let teamName of teamNames) {
+        let teamId = teamName.getAttribute('team');
+        teamName.textContent = teams[teamId].name;
+        console.log("teamName: " + teamName.textContent + " teamId: " + teamId);
+    }
 
-ipcRenderer.on('team-name-updated', (event, name) => {
-    const teamName = document.getElementById('teamName');
-    teamName.textContent = name;
+    const teamScores = document.getElementsByClassName('teamScore');
+    for(let teamScore of teamScores) {
+        let teamId = teamScore.getAttribute('team');
+        teamScore.textContent = teams[teamId].score;
+    }
 });

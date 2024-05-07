@@ -1,9 +1,21 @@
+const { contentTracing } = require('electron');
 const { app, BrowserWindow, ipcMain } = require('electron/main')
 const { count } = require('node:console')
 const path = require('node:path')
 
-counter = 0
-teamName = "Team 1"
+let team1 = { id: "1", name: 'Team 1', score: 0 };
+let team2 = { id: "2", name: 'Team 2', score: 0 };
+
+let teams = {
+  1: {
+    name: 'Team 1',
+    score: 0
+  },
+  2: {
+    name: 'Team 2',
+    score: 0
+  }
+}
 
 function createWindow() {
   const displayWindow = new BrowserWindow({
@@ -22,37 +34,40 @@ function createWindow() {
     }
   })
 
-  ipcMain.on('add-points', (event, pointsToAdd) => {
-    counter += parseInt(pointsToAdd, 10);
+  ipcMain.on('add-points', (event, pointsToAdd, team) => {
+    // Add points to the team
+    teams[team].score += parseInt(pointsToAdd);
+    
+    console.log("Team " + team + " score: " + teams[team].score)
 
-    if (counter < 0) {
-      counter = 0;
-    }
-
-    event.sender.send('counter-updated', counter);
-    if (displayWindow) {
-      displayWindow.webContents.send('counter-updated', counter)
-    }
-
-
+    controlWindow.webContents.send('data-refresh', teams)
+    displayWindow.webContents.send('data-refresh', teams)
   })
 
-  ipcMain.on('set-team-name', (event, teamName) => {
-    teamName = teamName;
-    event.sender.send('team-name-updated', teamName);
-    if (displayWindow) {
-      displayWindow.webContents.send('team-name-updated', teamName)
-    }
+  ipcMain.on('set-team-name', (event, teamName, team) => {
+    teams[team].name = teamName;
+    
+    controlWindow.webContents.send('data-refresh', teams)
+    displayWindow.webContents.send('data-refresh', teams)
+  
   })
 
   ipcMain.on('reset', (event) => { 
-    counter = 0;
-    teamName = "Team 1";
-    event.sender.send('counter-updated', counter);
-    if (displayWindow) {
-      displayWindow.webContents.send('counter-updated', counter)
-      displayWindow.webContents.send('team-name-updated', teamName);
+    console.log("Reset values")
+
+    let teams = {
+      1: {
+        name: 'Team 1',
+        score: 0
+      },
+      2: {
+        name: 'Team 2',
+        score: 0
+      }
     }
+
+    controlWindow.webContents.send('data-refresh', teams)
+    displayWindow.webContents.send('data-refresh', teams)
   })
 
   displayWindow.loadFile('display.html')

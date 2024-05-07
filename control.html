@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <input type="text" id="teamNameInput" placeholder="Enter team name">
-    <button id="setTeamName" type="button">Set Team Name</button>
 
-    <p id="counterValue">0</p>
-    <button class="scoreBtn" type="button">+1</button>
-    <button class="scoreBtn" type="button">+2</button>
-    <button class="scoreBtn" type="button">+5</button>
-    <button class="scoreBtn" type="button">-1</button>
-    <button class="scoreBtn" type="button">-2</button>
-    <button class="scoreBtn" type="button">-5</button>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Hello World!</title>
+</head>
 
-
-    <div\>
+<body>
+  <div>
+    <input type="text" class="teamNameInput" team="1" placeholder="Enter team name">
+    <button class="teamNameBtn" team="1" type="button">Update</button>
+    <p class="counterValue" team="1">0</p>
+    <button class="scoreBtn" team="1" type="button">+1</button>
+    <button class="scoreBtn" team="1" type="button">+2</button>
+    <button class="scoreBtn" team="1" type="button">+5</button>
+    <button class="scoreBtn" team="1" type="button">-1</button>
+    <button class="scoreBtn" team="1" type="button">-2</button>
+    <button class="scoreBtn" team="1" type="button">-5</button>
+  </div>
+  <div>
+    <input type="text" class="teamNameInput" team="2" placeholder="Enter team name">
+    <button class="teamNameBtn" team="2" type="button">Update</button>
+    <p class="counterValue" team="2">0</p>
+    <button class="scoreBtn" team="2" type="button">+1</button>
+    <button class="scoreBtn" team="2" type="button">+2</button>
+    <button class="scoreBtn" team="2" type="button">+5</button>
+    <button class="scoreBtn" team="2" type="button">-1</button>
+    <button class="scoreBtn" team="2" type="button">-2</button>
+    <button class="scoreBtn" team="2" type="button">-5</button>
+  </div>
+  <div>
     <button id="reset" type="button">Reset</button>
+  </div>
+  <script src="./renderer.js"></script>
+</body>
 
-    <script src="./renderer.js"></script>
-  </body>
 </html>
