@@ -10,3 +10,8 @@ const teamNameBtn = document.getElementById('setTeamName');
 teamNameBtn.addEventListener('click', () => {
   window.electronAPI.setTeamName(teamNameInput.value);
 });
+
+const resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', () => {
+  window.electronAPI.reset();
+});

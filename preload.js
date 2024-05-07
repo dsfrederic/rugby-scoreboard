@@ -2,7 +2,8 @@ const { contextBridge, ipcRenderer } = require('electron/renderer')
 
 contextBridge.exposeInMainWorld('electronAPI', {
     addPoints: (pointsToAdd) => ipcRenderer.send('add-points', pointsToAdd),
-    setTeamName: (teamName) => ipcRenderer.send('set-team-name', teamName)
+    setTeamName: (teamName) => ipcRenderer.send('set-team-name', teamName),
+    reset: () => ipcRenderer.send('reset')
 })
 
 ipcRenderer.on('counter-updated', (event, counter) => {

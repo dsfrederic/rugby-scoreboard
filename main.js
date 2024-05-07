@@ -12,7 +12,7 @@ function createWindow() {
       nodeIntegration: true,
     },
     frame: false,
-    fullscreen: true, 
+    // fullscreen: true, 
   })
 
   const controlWindow = new BrowserWindow({
@@ -42,6 +42,16 @@ function createWindow() {
     event.sender.send('team-name-updated', teamName);
     if (displayWindow) {
       displayWindow.webContents.send('team-name-updated', teamName)
+    }
+  })
+
+  ipcMain.on('reset', (event) => { 
+    counter = 0;
+    teamName = "Team 1";
+    event.sender.send('counter-updated', counter);
+    if (displayWindow) {
+      displayWindow.webContents.send('counter-updated', counter)
+      displayWindow.webContents.send('team-name-updated', teamName);
     }
   })
 
