@@ -17,7 +17,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: linux-artifact
-        path: ./dist/ # replace with the path to your build output
+        path: ./out/ # replace with the path to your build output
 
   build_on_mac:
     runs-on: macos-latest
@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: mac-artifact
-        path: ./dist/ # replace with the path to your build output
+        path: ./out/ # replace with the path to your build output
 
   build_on_win:
     runs-on: windows-latest
@@ -51,4 +51,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: win-artifact
-        path: ./dist/ # replace with the path to your build output
+        path: ./out/ # replace with the path to your build output
