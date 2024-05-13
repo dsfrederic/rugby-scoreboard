@@ -3,9 +3,6 @@ const { app, BrowserWindow, ipcMain } = require('electron/main')
 const { count } = require('node:console')
 const path = require('node:path')
 
-let team1 = { id: "1", name: 'Team 1', score: 0 };
-let team2 = { id: "2", name: 'Team 2', score: 0 };
-
 let teams = {
   1: {
     name: 'Team 1',
@@ -24,7 +21,7 @@ function createWindow() {
       nodeIntegration: true,
     },
     frame: false,
-    fullscreen: true, 
+    // fullscreen: true, 
   })
 
   const controlWindow = new BrowserWindow({
