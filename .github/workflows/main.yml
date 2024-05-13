@@ -10,7 +10,7 @@ jobs:
       with:
         node-version: 20
     - name: install dependencies
-      run: npm install
+      run: npm ci
     - name: build
       run: npm run make
     - name: upload artifact
@@ -27,7 +27,7 @@ jobs:
       with:
         node-version: 20
     - name: install dependencies
-      run: npm install
+      run: npm ci
     - name: build
       run: npm run make
     - name: upload artifact
@@ -44,7 +44,7 @@ jobs:
       with:
         node-version: 20
     - name: install dependencies
-      run: npm install
+      run: npm ci
     - name: build
       run: npm run make
     - name: upload artifact
