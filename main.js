@@ -21,7 +21,7 @@ function createWindow() {
       nodeIntegration: true,
     },
     frame: false,
-    // fullscreen: true, 
+    fullscreen: true, 
   })
 
   const controlWindow = new BrowserWindow({
@@ -73,6 +73,8 @@ function createWindow() {
   displayWindow.loadFile('display.html')
   controlWindow.loadFile('control.html')
 }
+
+if (require('electron-squirrel-startup')) app.quit();
 
 app.whenReady().then(() => {
   createWindow()
