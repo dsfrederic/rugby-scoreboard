@@ -9,25 +9,33 @@
   <title>Scoreboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
   <style>
-    html {
+    html,
+    body {
       height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      width: 100vw;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .teams {
       display: flex;
       justify-content: space-around;
       text-align: center;
+      flex-grow: 1;
+      /* Add this line */
     }
 
     .team {
@@ -35,26 +43,31 @@
     }
 
     .teamName {
-      font-size: 5em;
+      margin: 1rem;
+      font-size: 5rem;
       word-wrap: break-word;
-      background-color: #cac4c4;
+      background-color: #000000;
+      color: #ffffff;
     }
 
     .teamScore {
-      font-size: 15em;
-      margin-top: 0;
+      margin: 1rem;
+      font-size: 45vh;
+      margin: 0;
     }
 
     .teamName {
       font-family: 'Roboto', sans-serif;
     }
 
-    .teamName, .teamScore {
+    .teamName,
+    .teamScore {
       font-family: 'Oswald', sans-serif;
     }
 
     .footer {
       display: flex;
+      margin-bottom: 1rem;
       justify-content: space-around;
       flex-wrap: wrap;
       width: 100%;
