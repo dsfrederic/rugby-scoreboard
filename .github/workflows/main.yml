@@ -18,7 +18,11 @@ jobs:
       with:
         name: linux-artifact
         path: ./out/ # replace with the path to your build output
-
+    - name: Publish app
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run publish.
+      
   build_on_mac:
     runs-on: macos-latest
     steps:
@@ -35,7 +39,10 @@ jobs:
       with:
         name: mac-artifact
         path: ./out/ # replace with the path to your build output
-
+    - name: Publish app
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run publish
   build_on_win:
     runs-on: windows-latest
     steps:
@@ -52,3 +59,7 @@ jobs:
       with:
         name: win-artifact
         path: ./out/ # replace with the path to your build output
+    - name: Publish app
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run publish
