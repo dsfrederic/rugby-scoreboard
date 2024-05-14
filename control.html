@@ -13,6 +13,30 @@
       justify-content: space-around;
       text-align: center;
     }
+
+    .positive {
+      background-color: lightgreen;
+      color: white;
+      margin: 1rem;
+    }
+
+    .negative {
+      background-color: lightcoral;
+      color: white;
+      margin: 1rem;
+    }
+
+    .scoreBtn {
+      height: 2rem;
+      width: 2rem;
+      margin: 1rem;
+    }
+
+    .footer {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
   </style>
   <title>Scoreboard control center</title>
 </head>
@@ -24,27 +48,35 @@
       <button class="teamNameBtn" team="1" type="button">Update</button>
       <p class="teamName" team="1">Team 1</p>
       <p class="teamScore" team="1">0</p>
-      <button class="scoreBtn" team="1" type="button">+1</button>
-      <button class="scoreBtn" team="1" type="button">+2</button>
-      <button class="scoreBtn" team="1" type="button">+5</button>
-      <button class="scoreBtn" team="1" type="button">-1</button>
-      <button class="scoreBtn" team="1" type="button">-2</button>
-      <button class="scoreBtn" team="1" type="button">-5</button>
+      <div class="positive">
+        <button class="scoreBtn" team="1" type="button">+1</button>
+        <button class="scoreBtn" team="1" type="button">+2</button>
+        <button class="scoreBtn" team="1" type="button">+5</button>
+      </div>
+      <div class="negative">
+        <button class="scoreBtn" team="1" type="button">-1</button>
+        <button class="scoreBtn" team="1" type="button">-2</button>
+        <button class="scoreBtn" team="1" type="button">-5</button>
+      </div>
     </div>
     <div class="team">
       <input type="text" class="teamNameInput" team="2" placeholder="Enter team name">
       <button class="teamNameBtn" team="2" type="button">Update</button>
       <p class="teamName" team="2">Team 2</p>
       <p class="teamScore" team="2">0</p>
-      <button class="scoreBtn" team="2" type="button">+1</button>
-      <button class="scoreBtn" team="2" type="button">+2</button>
-      <button class="scoreBtn" team="2" type="button">+5</button>
-      <button class="scoreBtn" team="2" type="button">-1</button>
-      <button class="scoreBtn" team="2" type="button">-2</button>
-      <button class="scoreBtn" team="2" type="button">-5</button>
+      <div class="positive">
+        <button class="scoreBtn" team="2" type="button">+1</button>
+        <button class="scoreBtn" team="2" type="button">+2</button>
+        <button class="scoreBtn" team="2" type="button">+5</button>
+      </div>
+      <div class="negative">
+        <button class="scoreBtn" team="2" type="button">-1</button>
+        <button class="scoreBtn" team="2" type="button">-2</button>
+        <button class="scoreBtn" team="2" type="button">-5</button>
+      </div>
     </div>
   </div>
-  <div>
+  <div class="footer">
     <button id="reset" type="button">Reset</button>
   </div>
   <script src="./renderer.js"></script>
