@@ -10,6 +10,13 @@ Example of the control panel:
 
 ![alt text](image-1.png)
 
+## Release
+
+```
+npm version minor 
+git push --follow-tags
+```
+
 
 ## Next steps
 

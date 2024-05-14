@@ -1,5 +1,9 @@
-name: Build
-on: [push, pull_request]
+name: BuildAndRelease
+on:
+  push:
+    tags:
+      - 'v*'
+
 
 jobs:
   build_on_linux:
