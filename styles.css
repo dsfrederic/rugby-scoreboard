@@ -7,8 +7,10 @@
 html, body {
     width: 100%;
     height: 100%;
-    font-family: 'Oswald', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    overflow: hidden; /* Prevent scrolling */
+    font-family: "Oswald", sans-serif;
 }
 
 .container {
@@ -23,52 +25,72 @@ html, body {
 .scoreboard {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
     flex-grow: 1;
-    align-items: center;
-    padding: 2em;
+    padding: 2vh 2vw; /* Use viewport units for padding */
+    box-sizing: border-box;
 }
 
 .team {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40%;
+    width: 48%;
+    height: 98%; /* Ensure it scales well */
+    
 }
 
 .team-box {
     background-color: #fff;
     border: 2px solid #ccc;
     border-radius: 10px;
-    padding: 1em;
+    padding: 2vh 2vw; /* Use viewport units for padding */
     width: 100%;
+    height: 100%;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     overflow: hidden; 
+     white-space: nowrap; 
 }
 
 .team-name {
-    font-size: 4vw; /* Responsive font size */
-    margin-bottom: 0.5em;
-    color: #333;
+    font-size: 10vh; /* Relative to viewport height */
+    color: black;
 }
 
 .team-score {
-    font-size: 15vw; /* Responsive font size */
+    font-size: 28vh; /* Relative to viewport height */
     font-weight: bold;
-    color: #333;
+    color: black;
+    margin-top: -6vh;
 }
 
 footer {
     width: 100%;
     text-align: center;
     padding: 1em 0;
-    background-color: #f8f8f8;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; /* Fixed height for the footer */
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center; /* Distribute logos evenly */
+    align-items: center;
+    height: 100%; /* Ensure it takes the full height of the footer */
+    width: 100%; /* Ensure it takes the full width of the footer */
 }
 
 .logo {
-    max-height: 50px;
-    width: auto;
+    max-height: 100%; /* Ensure the logo fits within the footer height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+    padding: 2vh; /* Use viewport units for padding */
 }
-
-
