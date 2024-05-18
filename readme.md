@@ -4,7 +4,7 @@ This is a simple web application that allows users to create and manage a scoreb
 
 Example of the scoreboard:
 
-![alt text](image.png)
+![alt text](image-2.png)
 
 Example of the control panel:
 
