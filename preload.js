@@ -7,7 +7,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
 })
 
 ipcRenderer.on('data-refresh', (event, teams) => {
-    const teamNames = document.getElementsByClassName('teamName');
+    const teamNames = document.getElementsByClassName('team-name');
     for(let teamName of teamNames) {
         let teamId = teamName.getAttribute('team');
         teamName.textContent = teams[teamId].name;
@@ -20,7 +20,7 @@ ipcRenderer.on('data-refresh', (event, teams) => {
         teamNameInput.value = teams[teamId].name;
     }
 
-    const teamScores = document.getElementsByClassName('teamScore');
+    const teamScores = document.getElementsByClassName('team-score');
     for(let teamScore of teamScores) {
         let teamId = teamScore.getAttribute('team');
         teamScore.textContent = teams[teamId].score;
