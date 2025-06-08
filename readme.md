@@ -10,7 +10,15 @@ Example of the control panel:
 
 ![alt text](image-1.png)
 
+## Local develeopment 
+
+```
+npm start
+```
+
 ## Release
+
+This application is built and pacakaged in [Github Actions](./.github/workflows/main.yml)
 
 ```
 npm version minor 
